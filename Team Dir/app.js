@@ -211,9 +211,47 @@ function appCreate() {
 
 
                                                 },
-                                            
+function createTeam (){
+    inquirer.prompt([
+     {
+      type:"list",
+      name:"employeeChoice",
+      message:"what type of team member would you like to add",
+      choices:[
+          "intern", "manager", "engineer","I dont want to add anymore team members"
+      ]
+
+     }   
+    ]).then (userChoice=>{
+        switch(userChoice.employeeChoice){
+            case "intern":
+                addIntern();
+                break;
+
+                case "manager":
+                addManager();
+                break;
+
+                case "engineer":
+                    addEngineer();
+                   break;
+                   default:
+                       buildTeam();
+        }
+    })
+
+
+},                                         
+function buildTeam(){
+    if (!fs.existsSync(OUTPUT_DIR)) 
+    {      fs.mkdirSync(OUTPUT_DIR)
+        } 
+           fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+
+
+}                                           
                                                                                       
-                                            
+                                                                                  
 
 
 
