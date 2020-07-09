@@ -249,8 +249,8 @@ function buildTeam(){
            fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
 
 
-}                                           
-                                                                                      
+},                                           
+appCreate()                                                                                      
                                                                                   
 
 
